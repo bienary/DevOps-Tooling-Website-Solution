@@ -22,3 +22,21 @@
 - Prometheus ⏱️ – A leading open-source monitoring and alerting toolkit featuring a time-series database, flexible query language, and modern alerting capabilities.
 
 - Kibana 📈 – A free and open user interface for visualizing Elasticsearch data and interacting with the broader Elastic Stack, offering real-time insights and dashboards.
+
+## 🛠️ Project Architecture
+
+> In this project, you will implement a robust solution that includes the following core components and technologies:
+
+☁️ Infrastructure: Amazon Web Services (AWS) – A scalable and reliable cloud platform for hosting and managing your application and infrastructure.
+
+🖥️ Web Server OS: Red Hat Enterprise Linux 8 (RHEL 8) – A stable and secure enterprise-grade Linux distribution for hosting the PHP web application.
+
+🗄️ Database Server: Ubuntu 24.04 with MySQL – A modern Linux OS combined with a powerful open-source relational database system to manage application data.
+
+💾 Storage Server: RHEL 8 with NFS Server – A dedicated storage solution using Network File System (NFS) to enable shared access across environments.
+
+💻 Programming Language: PHP – A widely-used server-side scripting language suited for web development and backend logic.
+
+🔗 Code Repository: GitHub – A cloud-based platform for version control and collaborative development using Git.
+
+https://steghub.com/wp-content/uploads/2023/07/image-17.png
