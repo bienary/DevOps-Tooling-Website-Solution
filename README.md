@@ -43,3 +43,4 @@
 
 ---
 
+## 🛠️ Step 1 – Set Up the NFS Server
