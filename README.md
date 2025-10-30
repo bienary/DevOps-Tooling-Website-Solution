@@ -44,3 +44,12 @@
 ---
 
 ## 🛠️ Step 1 – Set Up the NFS Server
+- Launch an EC2 instance with Red Hat Enterprise Linux Operating System.
+- Configure Logical Volume Management on the Server
+- Instead of formatting the disks as `ext4` you will have to format them as `xfs`
+- Ensure there are 3 Logical Volumes. `lv-opt` `lv-apps`, and `lv-logs`
+- Create mount points on /mnt directory for the logical volumes as follows:
+
+> Mount lv-apps on /mnt/apps - To be used by webservers
+> Mount lv-logs on /mnt/logs - To be used by webserver logs
+> Mount lv-opt on /mnt/opt - To be used by Jenkins server in the next project
