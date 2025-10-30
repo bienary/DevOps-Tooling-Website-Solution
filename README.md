@@ -173,3 +173,8 @@ sudo exportfs -arv
 ```
 
 > For NFS Server to be accessible from the client, set the following ports: TCP 111, UDP 111, UDP 2049, and TCP 2049. Set the Web Server subnet CIDR as the source in the security group.
+
+---
+
+## **Step 2: Database Server Configuration**
+- Create an Ubuntu EC2 Instance for the DB Server
