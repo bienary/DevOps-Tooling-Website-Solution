@@ -55,3 +55,121 @@
 > Mount lv-logs on /mnt/logs - To be used by webserver logs
 
 > Mount lv-opt on /mnt/opt - To be used by Jenkins server in the next project
+
+### **Create and Mount Volumes**
+
+> Create 3 EBS volumes in the same Availability Zone as the NFS Server EC2, each of 10GB, and attach them one by one to the NFS Server.
+
+### **Server Configuration**
+
+> Log in to the Linux terminal to begin configuration:
+```
+ssh -i <Your-private-key.pem> ec2-user@<EC2-Public-IP-address>
+```
+- Run `lsblk` to view the block devices connected to the server.
+
+### **Partition the Disks**
+
+- We’ll use the `fdisk` command to create a single partition on each of the three available disks.
+
+```
+sudo gdisk /dev/nvme1n1
+
+sudo gdisk /dev/nvme2n1
+
+sudo gdisk /dev/nvme3n1
+```
+
+### **Install the Logical Volume Manager (LVM2) package**
+```
+sudo yum install lvm2 -y
+```
+
+### **Create LVM Physical Volumes**
+
+- Run the `pvcreate` command to initialize each of the three disks as Physical Volumes (PVs) for LVM use.
+```
+sudo pvcreate /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
+```
+```
+sudo pvs
+```
+
+### **Set Up the Volume Group**
+- Run `vgcreate` to add the three PVs to a new Volume Group called `webdata-vg`.
+
+```
+sudo vgcreate webdata-vg /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
+```
+```
+sudo vgs
+```
+
+### **Logical Volume Creation**
+- Run `lvcreate` to create three LVM logical volumes: `lv-apps`, `lv-logs`, and `lv-opt`.
+
+```
+sudo lvcreate -n lv-apps -L 9G webdata-vg
+
+sudo lvcreate -n lv-logs -L 9G webdata-vg
+
+sudo lvcreate -n lv-opt -L 9G webdata-vg
+```
+```
+sudo lvs
+```
+
+### **Format Logical Volumes with XFS**
+- Use the `mkfs.xfs` command to format the logical volumes with the XFS filesystem.
+
+```
+sudo mkfs.xfs /dev/webdata-vg/lv-apps
+
+sudo mkfs.xfs /dev/webdata-vg/lv-logs
+
+sudo mkfs.xfs /dev/webdata-vg/lv-opt
+```
+
+### **Create mount points on the /mnt directory**
+```
+sudo mkdir -p /mnt/{apps,logs,opt}
+
+sudo mount /dev/webdata-vg/lv-apps /mnt/apps
+
+sudo mount /dev/webdata-vg/lv-logs /mnt/logs
+
+sudo mount /dev/webdata-vg/lv-opt /mnt/opt
+```
+
+### **Install NFS server, then configure it to start on reboot:**
+```
+sudo yum update -y
+
+sudo yum install nfs-utils -y
+
+sudo systemctl start nfs-server.service
+
+sudo systemctl enable nfs-server.service
+
+sudo systemctl status nfs-server.service
+```
+
+- **Export the mounts for webservers' `subnet cidr` to connect as clients.**
+> set up permission that will allow our Web servers to read, write and execute files on NFS:
+```
+sudo chown -R nobody: /mnt/apps /mnt/logs /mnt/opt
+
+sudo chmod -R 777 /mnt/apps /mnt/logs /mnt/opt
+
+sudo systemctl restart nfs-server.service
+```
+
+### **Configure access to NFS for clients within the same subnet (example of Subnet CIDR - 172.31.32.0/20 ):**
+
+> To check your subnet CIDR: Open your EC2 details in the AWS web console, and locate the 'Networking' tab and open the Subnet link.
+```
+sudo vi /etc/exports
+sudo exportfs -arv
+```
+
+> For NFS Server to be accessible from the client, set the following ports: TCP 111, UDP 111, UDP 2049, and TCP 2049. Set the Web Server subnet CIDR as the source in the security group.
