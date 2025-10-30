@@ -51,5 +51,7 @@
 - Create mount points on /mnt directory for the logical volumes as follows:
 
 > Mount lv-apps on /mnt/apps - To be used by webservers
+
 > Mount lv-logs on /mnt/logs - To be used by webserver logs
+
 > Mount lv-opt on /mnt/opt - To be used by Jenkins server in the next project
