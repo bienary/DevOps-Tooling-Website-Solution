@@ -232,3 +232,26 @@ sudo systemctl status mysql
 
 ---
 
+### **Step 3: Prepare the Web Servers**
+> We need to make sure that our Web Servers can serve the same content from shared storage solutions, in our case - NFS Server and MySQL database.
+
+- We will do the following in our next steps:
+
+> Configure NFS client (this step must be done on all three servers)
+
+> Deploy a Tooling application to our Web Servers into a shared NFS folder
+
+> Configure the Web Servers to work with a single MySQL database
+
+- Launch a New EC2 Instance with RHEL Operating System
+
+- Install NFS Client
+```
+sudo yum install nfs-utils nfs4-acl-tools -y
+```
+
+- Mount /var/www/ and Target the NFS Server's Export for apps
+```
+sudo mkdir /var/www
+sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps /var/www
+```
