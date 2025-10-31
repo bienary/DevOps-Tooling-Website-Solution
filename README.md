@@ -221,7 +221,7 @@ EXIT;
 ```
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-> Find the line bind-address = 127.0.0.1 and change it to:
+> Locate the line bind-address = 127.0.0.1 and change it to:
 
 > bind-address = 0.0.0.0
 
