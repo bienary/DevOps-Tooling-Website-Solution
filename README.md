@@ -255,3 +255,143 @@ sudo yum install nfs-utils nfs4-acl-tools -y
 sudo mkdir /var/www
 sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps /var/www
 ```
+```
+sudo vi /etc/fstab
+```
+
+- Add the following line:
+
+```
+<NFS-Server-Private-IP-Address>:/mnt/apps /var/www nfs defaults 0 0
+```
+
+### **Install Remi's Repository, Apache and PHP**
+
+```
+sudo yum install httpd -y
+
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+sudo dnf module reset php
+
+sudo dnf module enable php:remi-7.4
+
+sudo dnf install php php-opcache php-gd php-curl php-mysqlnd
+
+sudo systemctl start php-fpm
+
+sudo systemctl enable php-fpm
+
+setsebool -P httpd_execmem 1
+```
+
+> Repeat the Configuration (Steps 1–5) for Each of the Two Additional Web Servers.
+
+### **Step 4: Verify Apache Files and Directories**
+
+- Verify that Apache files and directories are available on the Web Server in /var/www and also on the NFS server in /mnt/apps. If you see the same files - it means NFS is mounted correctly.
+
+> Create a test file on `WebServer 1` and check if the same file is accessible from on `WebServer 2`.
+
+- Mount Log Folder to NFS Server
+
+> On the Web Server, locate the Apache log path and mount it to the corresponding log export on the NFS server. Ensure the mount is automatically re-established after reboot.
+
+```
+sudo mkdir -p /var/log/httpd
+
+sudo mount -t nfs -o rw,nosuid <NFS-Private-IP>:/mnt/logs /var/log/httpd
+```
+```
+sudo vi /etc/fstab
+```
+
+- Add the following line:
+
+```
+<NFS-Private-IP>:/mnt/logs /var/log/httpd nfs defaults 0 0
+```
+
+### **Fork the Tooling Source Code**
+
+> Fork the tooling source code from StegHub Github Account to your Github account.
+
+### **Deploy the tooling website's code to the Webserver**
+
+> Ensure that the html folder from the repository is deployed to /var/www/html
+
+> Install Git and clone the tooling repository:
+
+- Adjust Permissions:
+
+```
+sudo chown -R apache:apache /var/www/html
+
+sudo chmod -R 755 /var/www/html
+
+sudo setenforce 0
+```
+
+- Change the line:
+
+```
+sudo vi /etc/sysconfig/selinux
+```
+
+> In the configuration file, find the line SELINUX=enforcing and modify it to SELINUX=disabled.
+
+> Restart:
+
+```
+sudo systemctl restart httpd
+```
+
+### **Update the website's configuration to connect to the database**
+
+- Run this on each of the web servers:
+
+```
+sudo vi /var/www/html/functions.php
+```
+
+- Locate the following line and replace it with your own details.
+
+```
+$db = mysqli_connect('DB_Private-IP', 'DB_Username', 'DB_Password', 'tooling');
+```
+
+- Run the `tooling-db.sql` script to initialize the database.
+
+```
+sudo mysql -h <databse-private-ip> -u <db-username> -p tooling < ~/tooling/tooling-db.sql
+```
+
+- Connect to the Database Server from your Web Server instance.
+
+```
+sudo mysql -h <databse-private-ip> -u <db-username> -p
+```
+
+### **Create a New Admin User in MySQL**
+
+> Create in MySQL a new admin user with username: myuser and password: password:
+
+```
+sudo mysql -u <db-username> -p -h <db-Private-IP>
+
+USE tooling;
+
+INSERT INTO users (id, username, password, email, user_type, status)
+
+VALUES (2, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
+
+EXIT;
+```
+
+> Open your browser and navigate to http://<Web-Server-Public-IP>/index.php, replacing <Web-Server-Public-IP> with the public IP addresses of Web Server 1, Web Server 2, and Web Server 3.
+
+### **Congratulations!**
+
+You have just set up a `LAMP web application` architecture for a DevOps team, using `Remote Database` and `NFS servers` to ensure high availability and centralized data management.
