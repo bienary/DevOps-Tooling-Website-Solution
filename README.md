@@ -84,12 +84,19 @@ ssh -i <Your-private-key.pem> ec2-user@<EC2-Public-IP-address>
 - We’ll use the `fdisk` command to create a single partition on each of the three available disks.
 
 ```
-sudo gdisk /dev/nvme1n1
+sudo fdisk /dev/nvme1n1
 
-sudo gdisk /dev/nvme2n1
+sudo fdisk /dev/nvme2n1
 
-sudo gdisk /dev/nvme3n1
+sudo fdisk /dev/nvme3n1
 ```
+
+> g → to create a new GPT partition table
+
+> n → add a new partition
+Press Enter to accept defaults for partition number, first sector, and last sector.
+
+> w → write the changes to disk and exit.
 
 ### **Install the Logical Volume Manager (LVM2) package**
 ```
