@@ -125,27 +125,27 @@ sudo pvs
 
 
 ### **Set Up the Volume Group**
-- Run `vgcreate` to add the three PVs to a new Volume Group called `webdata-vg`.
+- Run `vgcreate` to add the three PVs to a new Volume Group called `nfs-vg`.
 
 ```
-sudo vgcreate webdata-vg /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
+sudo vgcreate nfs-vg /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
 ```
 ```
 sudo vgs
 ```
 
-<img width="1085" height="173" alt="image" src="https://github.com/user-attachments/assets/94cebd3a-5e6c-439a-b68c-5a4466cd052f" />
+<img width="1085" height="173" alt="image" src="https://github.com/user-attachments/assets/50db46f1-1f06-4f46-962e-d6110b27fe12" />
 
 
 ### **Logical Volume Creation**
 - Run `lvcreate` to create three LVM logical volumes: `lv-apps`, `lv-logs`, and `lv-opt`.
 
 ```
-sudo lvcreate -n lv-apps -L 9G webdata-vg
+sudo lvcreate -n lv-apps -L 9G nfs-vg
 
-sudo lvcreate -n lv-logs -L 9G webdata-vg
+sudo lvcreate -n lv-logs -L 9G nfs-vg
 
-sudo lvcreate -n lv-opt -L 9G webdata-vg
+sudo lvcreate -n lv-opt -L 9G nfs-vg
 ```
 ```
 sudo lvs
