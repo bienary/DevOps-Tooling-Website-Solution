@@ -91,12 +91,16 @@ sudo fdisk /dev/nvme2n1
 sudo fdisk /dev/nvme3n1
 ```
 
+> NOTE:
 > g → to create a new GPT partition table
 
 > n → add a new partition
 Press Enter to accept defaults for partition number, first sector, and last sector.
 
 > w → write the changes to disk and exit.
+
+<img width="1313" height="729" alt="image" src="https://github.com/user-attachments/assets/6c19ab9b-bb2b-4e1f-b46d-5bd255c521b2" />
+
 
 ### **Install the Logical Volume Manager (LVM2) package**
 ```
