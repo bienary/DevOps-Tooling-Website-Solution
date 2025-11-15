@@ -92,6 +92,7 @@ sudo fdisk /dev/nvme3n1
 ```
 
 > NOTE:
+
 > g → to create a new GPT partition table
 
 > n → add a new partition
