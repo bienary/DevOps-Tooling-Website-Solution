@@ -233,11 +233,23 @@ sudo exportfs -arv
 ## **Step 2: Database Server Configuration**
 - Create an Ubuntu EC2 Instance for the DB Server
 
+<img width="1156" height="509" alt="image" src="https://github.com/user-attachments/assets/f5cfcd6c-b4a0-4f4f-98c9-fdc3fc6c73c5" />
+
+
 > In the Security Group:
 
 > Allow SSH (port 22) for your IP (for management).
 
 > Allow MySQL/Aurora (port 3306) and use the Subnet CIDR as the source (for secure DB access).
+
+
+<img width="1156" height="509" alt="image" src="https://github.com/user-attachments/assets/44d21216-9a38-4f3c-a1ab-5c53d782d957" />
+
+- SSH into the Ubuntu EC2 instance:
+
+```
+ssh -i <Your-private-key.pem> ubuntu@<EC2-Public-IP-address>
+```
 
 - Update & Upgrade Ubuntu Packages
 ```
@@ -253,6 +265,9 @@ sudo apt install mysql-server -y
 ```
 sudo mysql_secure_installation
 ```
+
+<img width="1265" height="696" alt="image" src="https://github.com/user-attachments/assets/e0c7648a-5a1e-4d74-8cd0-4724891f93de" />
+
 
 ### **Create a user, and grant privileges:**
 ```
@@ -271,6 +286,9 @@ SHOW DATABASES;
 EXIT;
 ```
 
+<img width="1314" height="482" alt="image" src="https://github.com/user-attachments/assets/9ac50652-ddbe-4646-ade6-14fa8bcf0beb" />
+
+
 ### **Configure MySQL Bind Address and Restart the Service**
 ```
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -279,6 +297,11 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
 > bind-address = 0.0.0.0
 
+<img width="1269" height="481" alt="image" src="https://github.com/user-attachments/assets/69d4437e-9d19-4dbe-9f2d-dc551441ad7b" />
+> This allows remote connections. This allows MySQL to accept connections from any IP address, not just localhost.
+
+
+- Restart MySQL to apply changes:
 ```
 sudo systemctl restart mysql
 sudo systemctl status mysql
