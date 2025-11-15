@@ -308,6 +308,9 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
+<img width="1269" height="481" alt="image" src="https://github.com/user-attachments/assets/7ded9e60-e481-4c64-86cf-c7b2b1835d4b" />
+
+
 ---
 
 ### **Step 3: Prepare the Web Servers**
