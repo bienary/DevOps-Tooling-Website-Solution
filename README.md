@@ -108,6 +108,9 @@ Press Enter to accept defaults for partition number, first sector, and last sect
 sudo yum install lvm2 -y
 ```
 
+<img width="1313" height="729" alt="image" src="https://github.com/user-attachments/assets/70535b47-8b39-48e3-87d4-6a51363b4d4f" />
+
+
 ### **Create LVM Physical Volumes**
 
 - Run the `pvcreate` command to initialize each of the three disks as Physical Volumes (PVs) for LVM use.
@@ -118,6 +121,9 @@ sudo pvcreate /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
 sudo pvs
 ```
 
+<img width="1098" height="307" alt="image" src="https://github.com/user-attachments/assets/f977456a-1d86-4f6d-bac8-7ad311da7318" />
+
+
 ### **Set Up the Volume Group**
 - Run `vgcreate` to add the three PVs to a new Volume Group called `webdata-vg`.
 
@@ -127,6 +133,9 @@ sudo vgcreate webdata-vg /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1
 ```
 sudo vgs
 ```
+
+<img width="1085" height="173" alt="image" src="https://github.com/user-attachments/assets/94cebd3a-5e6c-439a-b68c-5a4466cd052f" />
+
 
 ### **Logical Volume Creation**
 - Run `lvcreate` to create three LVM logical volumes: `lv-apps`, `lv-logs`, and `lv-opt`.
