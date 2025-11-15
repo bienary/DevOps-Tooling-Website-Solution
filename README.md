@@ -299,7 +299,7 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
 <img width="1269" height="481" alt="image" src="https://github.com/user-attachments/assets/69d4437e-9d19-4dbe-9f2d-dc551441ad7b" />
 
-> This allows remote connections. This allows MySQL to accept connections from any IP address, not just localhost.
+> This allows MySQL to accept connections from any IP address remotely, not just localhost.
 
 
 - Restart MySQL to apply changes:
