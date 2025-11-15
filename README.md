@@ -46,11 +46,7 @@
 ## 🛠️ Step 1 – Set Up the NFS Server
 - Launch an EC2 instance with Red Hat Enterprise Linux Operating System.
 
-<img width="1151" height="183" alt="Screenshot From 2025-11-13 07-03-01" src="https://github.com/user-attachments/assets/7026824d-d5e3-48d2-81bb-80b5ccd74fd2" />
-
 - Configure Logical Volume Management on the Server
-
-<img width="1155" height="223" alt="Screenshot From 2025-11-13 07-19-47" src="https://github.com/user-attachments/assets/4e1d2032-6c0d-4b7a-8399-72c769ac24dd" />
 
 - Instead of formatting the disks as `ext4` you will have to format them as `xfs`
 - Ensure there are 3 Logical Volumes. `lv-opt` `lv-apps`, and `lv-logs`
@@ -72,7 +68,15 @@
 ```
 ssh -i <Your-private-key.pem> ec2-user@<EC2-Public-IP-address>
 ```
+
+<img width="1151" height="183" alt="Screenshot From 2025-11-13 07-03-01" src="https://github.com/user-attachments/assets/7026824d-d5e3-48d2-81bb-80b5ccd74fd2" />
+
+<img width="1155" height="223" alt="Screenshot From 2025-11-13 07-19-47" src="https://github.com/user-attachments/assets/4e1d2032-6c0d-4b7a-8399-72c769ac24dd" />
+
+
 - Run `lsblk` to view the block devices connected to the server.
+
+<img width="1019" height="291" alt="image" src="https://github.com/user-attachments/assets/00d22f01-c036-4bd6-ba7b-5f1c180b7a61" />
 
 ### **Partition the Disks**
 
