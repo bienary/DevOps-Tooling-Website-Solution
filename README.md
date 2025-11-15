@@ -72,9 +72,6 @@
 ssh -i <Your-private-key.pem> ec2-user@<EC2-Public-IP-address>
 ```
 
-<img width="1151" height="183" alt="Screenshot From 2025-11-13 07-03-01" src="https://github.com/user-attachments/assets/7026824d-d5e3-48d2-81bb-80b5ccd74fd2" />
-
-
 - Run `lsblk` to view the block devices connected to the server.
 
 <img width="1019" height="291" alt="image" src="https://github.com/user-attachments/assets/00d22f01-c036-4bd6-ba7b-5f1c180b7a61" />
