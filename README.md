@@ -46,7 +46,8 @@
 ## 🛠️ Step 1 – Set Up the NFS Server
 - Launch an EC2 instance with Red Hat Enterprise Linux Operating System.
 
-<img width="1155" height="223" alt="Screenshot From 2025-11-13 07-19-47" src="https://github.com/user-attachments/assets/4e1d2032-6c0d-4b7a-8399-72c769ac24dd" />
+<img width="1151" height="183" alt="Screenshot From 2025-11-13 07-03-01" src="https://github.com/user-attachments/assets/ff4bf7a6-11ff-469d-9978-dd5526d05d92" />
+
 
 - Configure Logical Volume Management on the Server
 
@@ -63,6 +64,8 @@
 ### **Create and Mount Volumes**
 
 > Create 3 EBS volumes in the same Availability Zone as the NFS Server EC2, each of 10GB, and attach them one by one to the NFS Server.
+
+<img width="1155" height="223" alt="Screenshot From 2025-11-13 07-19-47" src="https://github.com/user-attachments/assets/ada52454-cdcb-4f4e-851b-ef85bbc6c5bd" />
 
 
 ### **Server Configuration**
