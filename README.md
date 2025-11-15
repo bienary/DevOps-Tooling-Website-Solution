@@ -165,9 +165,12 @@ sudo mkfs.xfs /dev/nfs-vg/lv-logs
 sudo mkfs.xfs /dev/nfs-vg/lv-opt
 ```
 
+<img width="1311" height="712" alt="image" src="https://github.com/user-attachments/assets/1cf507e8-d3b9-4845-9e93-955782afefa7" />
+
+
 ### **Create mount points on the /mnt directory**
 ```
-sudo mkdir -p /mnt/{apps,logs,opt}
+sudo mkdir -p /mnt/apps /mnt/logs /mnt/opt
 
 sudo mount /dev/nfs-vg/lv-apps /mnt/apps
 
@@ -175,6 +178,9 @@ sudo mount /dev/nfs-vg/lv-logs /mnt/logs
 
 sudo mount /dev/nfs-vg/lv-opt /mnt/opt
 ```
+
+<img width="885" height="148" alt="image" src="https://github.com/user-attachments/assets/d3cd91d0-b93c-4352-bc70-3ff30a643599" />
+
 
 ### **Install NFS server, then configure it to start on reboot:**
 ```
