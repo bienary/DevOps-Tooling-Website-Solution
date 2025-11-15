@@ -195,6 +195,9 @@ sudo systemctl enable nfs-server.service
 sudo systemctl status nfs-server.service
 ```
 
+<img width="1324" height="427" alt="image" src="https://github.com/user-attachments/assets/74a5122b-fbe3-41f7-97cc-2f74a986a036" />
+
+
 - **Export the mounts for webservers' `subnet cidr` to connect as clients.**
 > set up permission that will allow our Web servers to read, write and execute files on NFS:
 ```
@@ -205,6 +208,9 @@ sudo chmod -R 777 /mnt/apps /mnt/logs /mnt/opt
 sudo systemctl restart nfs-server.service
 ```
 
+<img width="1222" height="179" alt="image" src="https://github.com/user-attachments/assets/ba8883ff-c7f0-4fab-9ef8-7867ee15b518" />
+
+
 ### **Configure access to NFS for clients within the same subnet (example of Subnet CIDR - 172.31.32.0/20 ):**
 
 > To check your subnet CIDR: Open your EC2 details in the AWS web console, and locate the 'Networking' tab and open the Subnet link.
@@ -213,7 +219,14 @@ sudo vi /etc/exports
 sudo exportfs -arv
 ```
 
+<img width="1215" height="129" alt="image" src="https://github.com/user-attachments/assets/8e06ed91-3a14-4573-966b-93b345f1a7ba" />
+
+
 > For NFS Server to be accessible from the client, set the following ports: TCP 111, UDP 111, UDP 2049, and TCP 2049. Set the Web Server subnet CIDR as the source in the security group.
+
+
+<img width="1156" height="509" alt="image" src="https://github.com/user-attachments/assets/ad718445-e39b-497a-a7bd-f50ba41f35c0" />
+
 
 ---
 
