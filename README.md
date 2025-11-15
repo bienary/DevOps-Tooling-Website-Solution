@@ -151,26 +151,29 @@ sudo lvcreate -n lv-opt -L 9G nfs-vg
 sudo lvs
 ```
 
+<img width="1058" height="321" alt="image" src="https://github.com/user-attachments/assets/70a790ce-61ad-4fa7-948e-e7f6f350cacf" />
+
+
 ### **Format Logical Volumes with XFS**
 - Use the `mkfs.xfs` command to format the logical volumes with the XFS filesystem.
 
 ```
-sudo mkfs.xfs /dev/webdata-vg/lv-apps
+sudo mkfs.xfs /dev/nfs-vg/lv-apps
 
-sudo mkfs.xfs /dev/webdata-vg/lv-logs
+sudo mkfs.xfs /dev/nfs-vg/lv-logs
 
-sudo mkfs.xfs /dev/webdata-vg/lv-opt
+sudo mkfs.xfs /dev/nfs-vg/lv-opt
 ```
 
 ### **Create mount points on the /mnt directory**
 ```
 sudo mkdir -p /mnt/{apps,logs,opt}
 
-sudo mount /dev/webdata-vg/lv-apps /mnt/apps
+sudo mount /dev/nfs-vg/lv-apps /mnt/apps
 
-sudo mount /dev/webdata-vg/lv-logs /mnt/logs
+sudo mount /dev/nfs-vg/lv-logs /mnt/logs
 
-sudo mount /dev/webdata-vg/lv-opt /mnt/opt
+sudo mount /dev/nfs-vg/lv-opt /mnt/opt
 ```
 
 ### **Install NFS server, then configure it to start on reboot:**
