@@ -326,6 +326,16 @@ sudo systemctl status mysql
 
 - Launch a New EC2 Instance with RHEL Operating System
 
+<img width="1153" height="313" alt="image" src="https://github.com/user-attachments/assets/d1d02364-685a-488f-8d61-01bb06e4b615" />
+
+> SSH into the server and update the server:
+
+```
+ssh -i <Your-private-key.pem> ec2-user@<EC2-Public-IP-address>
+
+sudo dnf update -y
+```
+
 - Install NFS Client
 ```
 sudo yum install nfs-utils nfs4-acl-tools -y
