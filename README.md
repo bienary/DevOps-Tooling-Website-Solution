@@ -420,6 +420,9 @@ ls /var/www
 ls /mnt/apps
 ```
 
+<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-21-30" src="https://github.com/user-attachments/assets/9d3e4708-48f8-42e2-9bdc-4d7646e8b196" />
+
+
 - Mount Log Folder to NFS Server
 
 > On the Web Server, locate the Apache log path and mount it to the corresponding log export on the NFS server. Ensure the mount is automatically re-established after reboot.
