@@ -467,6 +467,16 @@ sudo vi /etc/fstab
 
 > Install Git and clone the tooling repository:
 
+> sudo yum install git -y
+
+> git clone https://github.com/Trivancee/tooling.git
+
+Copy the tooling/html to /var/www/html directory:
+> sudo cp -R ~/tooling/html/* /var/www/html/
+
+<img width="1321" height="316" alt="image" src="https://github.com/user-attachments/assets/d2311c82-7511-4f2b-a5c5-152cd898389d" />
+
+
 - Adjust Permissions:
 
 ```
@@ -483,6 +493,9 @@ sudo setenforce 0
 sudo vi /etc/sysconfig/selinux
 ```
 
+<img width="1321" height="316" alt="image" src="https://github.com/user-attachments/assets/09b9caa0-9008-45ff-86ae-1d5dc7cccd82" />
+
+
 > In the configuration file, find the line SELINUX=enforcing and modify it to SELINUX=disabled.
 
 > Restart:
@@ -490,6 +503,8 @@ sudo vi /etc/sysconfig/selinux
 ```
 sudo systemctl restart httpd
 ```
+> **Remember to repeat this configuration change on all three web servers.**
+
 
 ### **Update the website's configuration to connect to the database**
 
