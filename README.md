@@ -364,6 +364,10 @@ sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps /var/ww
 sudo vi /etc/fstab
 ```
 
+- Confirm mount:
+```
+df -h
+```
 <img width="1299" height="421" alt="image" src="https://github.com/user-attachments/assets/3e8e80bc-a533-4a0e-9dc0-7b6f765433b8" />
 
 
@@ -373,27 +377,27 @@ sudo vi /etc/fstab
 <NFS-Server-Private-IP-Address>:/mnt/apps /var/www nfs defaults 0 0
 ```
 
-### **Install Remi's Repository, Apache and PHP**
+### **Install Apache and PHP-FPM, then enable and start services :**
 
 ```
-sudo yum install httpd -y
+sudo dnf install -y httpd php php-fpm php-mysqlnd php-json php-xml php-gd php-cli php-common php-opcache nfs-utils
 
-sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo systemctl enable --now httpd
 
-sudo dnf module reset php
-
-sudo dnf module enable php:remi-7.4
-
-sudo dnf install php php-opcache php-gd php-curl php-mysqlnd
-
-sudo systemctl start php-fpm
-
-sudo systemctl enable php-fpm
-
-setsebool -P httpd_execmem 1
+sudo systemctl enable --now php-fpm
 ```
 
-> Repeat the Configuration (Steps 1–5) for Each of the Two Additional Web Servers.
+- Set SELinux:
+
+```
+sudo setsebool -P httpd_execmem 1
+
+sudo setsebool -P httpd_can_network_connect 1
+
+sudo setsebool -P httpd_can_network_connect_db 1
+```
+
+> **Repeat the Configuration (Steps 1–5) for Each of the Two Additional Web Servers.**
 
 ### **Step 4: Verify Apache Files and Directories**
 
