@@ -326,7 +326,8 @@ sudo systemctl status mysql
 
 - Launch a New EC2 Instance with RHEL Operating System
 
-<img width="1153" height="313" alt="image" src="https://github.com/user-attachments/assets/d1d02364-685a-488f-8d61-01bb06e4b615" />
+<img width="1164" height="343" alt="image" src="https://github.com/user-attachments/assets/76933ab9-954a-4928-bd44-306df7c0c3f5" />
+
 
 > SSH into the server and update the server:
 
