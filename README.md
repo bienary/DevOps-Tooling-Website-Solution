@@ -338,7 +338,9 @@ sudo dnf update -y
 > Configure Security Group:
 
 > Port 22 → SSH access for management
+
 > Port 80 → HTTP from 0.0.0.0/0
+
 > Port 443 → HTTPS from 0.0.0.0/0
 
 <img width="1164" height="449" alt="image" src="https://github.com/user-attachments/assets/f0668a0e-bdb2-4c88-9fac-c96e60969028" />
