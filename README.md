@@ -451,6 +451,9 @@ sudo vi /etc/fstab
 <NFS-Private-IP>:/mnt/logs /var/log/httpd nfs defaults 0 0
 ```
 
+<img width="1321" height="560" alt="Screenshot From 2025-11-22 08-52-39" src="https://github.com/user-attachments/assets/1955e08d-82b3-42f6-bb75-72afcc8c20da" />
+
+
 ### **Fork the Tooling Source Code**
 
 > Fork the tooling source code from StegHub Github Account to your Github account.
