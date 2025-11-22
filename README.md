@@ -352,6 +352,9 @@ sudo dnf update -y
 sudo yum install nfs-utils nfs4-acl-tools -y
 ```
 
+<img width="1313" height="699" alt="image" src="https://github.com/user-attachments/assets/33735fb4-1eae-4d1a-862a-87e93e220204" />
+
+
 - Mount /var/www/ and Target the NFS Server's Export for apps
 ```
 sudo mkdir /var/www
@@ -360,6 +363,9 @@ sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps /var/ww
 ```
 sudo vi /etc/fstab
 ```
+
+<img width="1299" height="421" alt="image" src="https://github.com/user-attachments/assets/3e8e80bc-a533-4a0e-9dc0-7b6f765433b8" />
+
 
 - Add the following line:
 
@@ -371,8 +377,6 @@ sudo vi /etc/fstab
 
 ```
 sudo yum install httpd -y
-
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 
 sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
