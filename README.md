@@ -420,7 +420,13 @@ ls /var/www
 ls /mnt/apps
 ```
 
-<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-21-30" src="https://github.com/user-attachments/assets/9d3e4708-48f8-42e2-9bdc-4d7646e8b196" />
+<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-21-30" src="https://github.com/user-attachments/assets/de84da51-6151-4d2c-8743-9f17c1a11e0b" />
+
+<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-21-38" src="https://github.com/user-attachments/assets/2fca19f8-763c-42b0-bd4e-429c35fa47a7" />
+
+<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-21-46" src="https://github.com/user-attachments/assets/47f3f354-5404-48d7-80ad-849d1f61a3b4" />
+
+<img width="1320" height="173" alt="Screenshot From 2025-11-22 08-25-36" src="https://github.com/user-attachments/assets/2c159ef8-d81c-4aa9-8c26-5a894de86e37" />
 
 
 - Mount Log Folder to NFS Server
