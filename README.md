@@ -458,6 +458,9 @@ sudo vi /etc/fstab
 
 > Fork the tooling source code from StegHub Github Account to your Github account.
 
+<img width="1316" height="649" alt="image" src="https://github.com/user-attachments/assets/300a5437-31ea-4c48-b966-df7590fb7524" />
+
+
 ### **Deploy the tooling website's code to the Webserver**
 
 > Ensure that the html folder from the repository is deployed to /var/www/html
