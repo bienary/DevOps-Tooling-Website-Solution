@@ -405,6 +405,21 @@ sudo setsebool -P httpd_can_network_connect_db 1
 
 > Create a test file on `WebServer 1` and check if the same file is accessible from on `WebServer 2`.
 
+- Run both commands on web server 1:
+```
+sudo touch /var/www/test.txt
+ls /var/www
+```
+
+- Run this command on web server 2 & 3:
+```
+ls /var/www
+```
+- Run this command on the NFS Server:
+```
+ls /mnt/apps
+```
+
 - Mount Log Folder to NFS Server
 
 > On the Web Server, locate the Apache log path and mount it to the corresponding log export on the NFS server. Ensure the mount is automatically re-established after reboot.
