@@ -520,6 +520,9 @@ sudo vi /var/www/html/functions.php
 $db = mysqli_connect('DB_Private-IP', 'DB_Username', 'DB_Password', 'tooling');
 ```
 
+<img width="1313" height="724" alt="Screenshot From 2025-11-22 09-48-32" src="https://github.com/user-attachments/assets/4f9deccb-ec24-4d87-bba0-9c860ee5b3c6" />
+
+
 - Run the `tooling-db.sql` script to initialize the database.
 
 ```
