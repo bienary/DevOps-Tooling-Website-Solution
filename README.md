@@ -557,8 +557,26 @@ VALUES (2, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin
 EXIT;
 ```
 
+<img width="1318" height="714" alt="image" src="https://github.com/user-attachments/assets/b9d356f3-4e11-4047-b998-737fad3f4de0" />
+
+
 > Open your browser and navigate to http://<Web-Server-Public-IP>/index.php, replacing <Web-Server-Public-IP> with the public IP addresses of Web Server 1, Web Server 2, and Web Server 3.
 
 ### **Congratulations!**
+
+> WebServer-1
+
+<img width="1320" height="735" alt="image" src="https://github.com/user-attachments/assets/fcb5c71f-1b50-44fe-bdf0-6944511630bd" />
+
+> WebServer-2
+
+<img width="1320" height="735" alt="image" src="https://github.com/user-attachments/assets/00a62178-4ff5-4232-9382-596bb5dc8c8c" />
+
+> WebServer-3
+
+<img width="1320" height="735" alt="image" src="https://github.com/user-attachments/assets/3f1962f3-df36-4c88-8b45-102094044224" />
+
+
+
 
 You have just set up a `LAMP web application` architecture for a DevOps team, using `Remote Database` and `NFS servers` to ensure high availability and centralized data management.
