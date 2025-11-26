@@ -233,7 +233,8 @@ sudo exportfs -arv
 ## **Step 2: Database Server Configuration**
 - Create an Ubuntu EC2 Instance for the DB Server
 
-<img width="1156" height="509" alt="image" src="https://github.com/user-attachments/assets/f5cfcd6c-b4a0-4f4f-98c9-fdc3fc6c73c5" />
+<img width="1154" height="186" alt="image" src="https://github.com/user-attachments/assets/9817a936-2107-4544-8da8-2201233a327a" />
+
 
 
 > In the Security Group:
@@ -243,7 +244,8 @@ sudo exportfs -arv
 > Allow MySQL/Aurora (port 3306) and use the Subnet CIDR as the source (for secure DB access).
 
 
-<img width="1156" height="509" alt="image" src="https://github.com/user-attachments/assets/44d21216-9a38-4f3c-a1ab-5c53d782d957" />
+<img width="1146" height="483" alt="image" src="https://github.com/user-attachments/assets/6febb549-592d-4c43-b7cc-2b1bec9789e7" />
+
 
 - SSH into the Ubuntu EC2 instance:
 
@@ -266,7 +268,8 @@ sudo apt install mysql-server -y
 sudo mysql_secure_installation
 ```
 
-<img width="1265" height="696" alt="image" src="https://github.com/user-attachments/assets/e0c7648a-5a1e-4d74-8cd0-4724891f93de" />
+<img width="1322" height="544" alt="image" src="https://github.com/user-attachments/assets/92294b91-a901-4155-a908-5bd9e48666a8" />
+
 
 
 ### **Create a user, and grant privileges:**
@@ -286,7 +289,8 @@ SHOW DATABASES;
 EXIT;
 ```
 
-<img width="1314" height="482" alt="image" src="https://github.com/user-attachments/assets/9ac50652-ddbe-4646-ade6-14fa8bcf0beb" />
+<img width="1318" height="721" alt="image" src="https://github.com/user-attachments/assets/6656f334-169f-46c4-baaa-9f8b34fd2695" />
+
 
 
 ### **Configure MySQL Bind Address and Restart the Service**
@@ -297,7 +301,8 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
 > bind-address = 0.0.0.0
 
-<img width="1269" height="481" alt="image" src="https://github.com/user-attachments/assets/69d4437e-9d19-4dbe-9f2d-dc551441ad7b" />
+<img width="1318" height="721" alt="image" src="https://github.com/user-attachments/assets/e442c8fd-7189-4ada-8237-b0d82c3d3a21" />
+
 
 > This allows MySQL to accept connections from any IP address remotely, not just localhost.
 
@@ -308,7 +313,8 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
-<img width="1269" height="481" alt="image" src="https://github.com/user-attachments/assets/7ded9e60-e481-4c64-86cf-c7b2b1835d4b" />
+<img width="1322" height="404" alt="image" src="https://github.com/user-attachments/assets/c8b144d0-9f87-4f7f-a186-e09fe8ae72eb" />
+
 
 
 ---
