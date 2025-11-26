@@ -562,7 +562,6 @@ EXIT;
 
 > Open your browser and navigate to http://<Web-Server-Public-IP>/index.php, replacing <Web-Server-Public-IP> with the public IP addresses of Web Server 1, Web Server 2, and Web Server 3.
 
-### **Congratulations!**
 
 > WebServer-1
 
@@ -576,7 +575,8 @@ EXIT;
 
 <img width="1320" height="735" alt="image" src="https://github.com/user-attachments/assets/3f1962f3-df36-4c88-8b45-102094044224" />
 
+---
 
-
+### **Congratulations!**
 
 You have just set up a `LAMP web application` architecture for a DevOps team, using `Remote Database` and `NFS servers` to ensure high availability and centralized data management.
