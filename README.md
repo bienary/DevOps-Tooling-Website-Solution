@@ -475,7 +475,7 @@ sudo vi /etc/fstab
 
 > sudo yum install git -y
 
-> git clone https://github.com/Trivancee/tooling.git
+> git clone https://github.com/Bienary/tooling.git
 
 Copy the tooling/html to /var/www/html directory:
 > sudo cp -R ~/tooling/html/* /var/www/html/
